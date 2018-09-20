@@ -21,14 +21,15 @@
     "css:concatDist": "./src/css/dogfinder.css"
   },
   "scripts": {
-    "prestart": "npm-run-all scss:compile css:concat css:concatDist",
-    "start": "npm-run-all --parallel react:start scss:watch watch",
+    "prestart": "npm-run-all scss:compile",
+    "start": "npm-run-all --parallel react:start scss:watch",
+    "poststart": "watch",
     "react:start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "scss:watch": "node-sass --watch ./src/css/scss -o ./src/css/compiled",
-    "scss:compile": "node-sass ./src/css/scss -o ./src/css/compiled",
+    "scss:watch": "node-sass --watch ./src/css/scss/** -o ./src/css/compiled",
+    "scss:compile": "node-sass ./src/css/scss/** -o ./src/css/compiled",
     "css:concat": "concat-glob-cli -f ./src/css/compiled/*.css -o ./src/css/dogfinder.css",
     "css:concatDist": "concat -o ./src/css/styles.css ./node_modules/bootstrap/dist/css/bootstrap.min.css ./src/css/dogfinder.css",
     "watch": "npm-watch"
