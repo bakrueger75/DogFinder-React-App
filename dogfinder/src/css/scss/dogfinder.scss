@@ -8,39 +8,8 @@ body > div, #dogFinderApp > div, #dogSearchResults > div, #dogSearchForm > div {
   margin-bottom: 12px;
 }
 
-#headerWidget {
-  margin-bottom: 14px;
-}
-
-#headerWidget #headerImage img {
-  width: 100%;
-}
-
-@media (min-width: 768px) {
-  #headerWidget #headerImage img {
-    width: 80%;
-  }
-}
-
-@media (min-width: 1024px) {
-  #headerWidget #headerImage img {
-    width: 60%;
-  }
-}
-
-#headerWidget #headerTitle {
-  font-size: 24px;
-  font-weight: bold;
-  color: #bf3d3d;
-}
-
-#footerWidget {
-  margin-top: 14px;
-}
-
-#headerWidget, #footerWidget {
-  text-align: center;
-}
+@import 'components/header';
+@import 'components/footer';
 
 #breedList, #dogSearchTerm, #searchButton, .dogCount, #welcomeMessage, .searchField.or {
   line-height: 24px;
