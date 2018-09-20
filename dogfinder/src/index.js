@@ -48,7 +48,7 @@ class DogSearchResults extends React.Component {
 			}
 		}
 	}
-  
+
 	componentWillReceiveProps(nextProps) {
 		this.setState({
 			isLoading: nextProps.isLoading,
@@ -56,7 +56,7 @@ class DogSearchResults extends React.Component {
 			searchTerm: nextProps.searchTerm
 		});
     }
-	
+
 	shouldComponentUpdate(nextProps, nextState) {
 		if (nextProps.isLoading !== this.state.isLoading) {
 			return true;
@@ -120,12 +120,12 @@ class SearchForm extends React.Component {
 		  breedSelected: "",
 		  searchLoading: false
 	  }
-	  
+
 	  this.dogSearchKeyup = this.dogSearchKeyup.bind(this);
 	  this.breedSelected = this.breedSelected.bind(this);
 	  this.dogSearch = this.dogSearch.bind(this);
   }
-  
+
   breedSelected(e) {
 	  this.setState({
 		  breedSelected: e.currentTarget.value,
@@ -134,7 +134,7 @@ class SearchForm extends React.Component {
 	  });
 	  this.refs.dogSearchTerm.value="";
   }
-  
+
   dogSearch() {
 	  this.setState({
 		  breedSelected: "",
@@ -142,14 +142,14 @@ class SearchForm extends React.Component {
 		  searchLoading: true
 	  });
   }
-  
+
   dogSearchKeyup(e) {
 	  if (e.key === "Enter") {
 		  this.dogSearch();
 	  }
 	  this.refs.breedList.value="";
   }
-  
+
   componentDidMount() {
 	var that = this;
 	fetch("http://localhost:8080/BKDogFinderRestServices/services/bkdogfinderservice/getDogList")
@@ -163,7 +163,7 @@ class SearchForm extends React.Component {
 			});
 		});
   }
-  
+
   render() {
 	const { error, breedsLoaded, breeds } = this.state;
 	if (error) {
@@ -182,13 +182,13 @@ class SearchForm extends React.Component {
 						<select id="breedList" onChange={this.breedSelected} ref="breedList">
 							<option className="breedOption" value="">Choose Dog Breed</option>
 							{ breeds.map((breed, index) => (
-								<option className="breedOption" key={index} value={breed}>{breed}</option> 
+								<option className="breedOption" key={index} value={breed}>{breed}</option>
 							))}
 						</select>
 					</div>
-				
+
 					<div  className="searchField or">OR</div>
-					
+
 					<div className="searchField">
 						<input name="dogSearchTerm" id="dogSearchTerm" type="input" ref="dogSearchTerm" onKeyUp={this.dogSearchKeyup}/>
 						<button id="searchButton" className="redButton" onClick={this.dogSearch}>Search</button>
