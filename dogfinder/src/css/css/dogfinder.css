@@ -1,0 +1,124 @@
+body {
+  font-family: Open Sans, Arial;
+  font-size: 16px; }
+
+body > div, #dogFinderApp > div, #dogSearchResults > div, #dogSearchForm > div {
+  text-align: center;
+  margin-bottom: 12px; }
+
+#headerWidget {
+  margin-bottom: 14px; }
+
+#headerWidget #headerImage img {
+  width: 100%; }
+
+@media (min-width: 768px) {
+  #headerWidget #headerImage img {
+    width: 80%; } }
+
+@media (min-width: 1024px) {
+  #headerWidget #headerImage img {
+    width: 60%; } }
+
+#headerWidget #headerTitle {
+  font-size: 24px;
+  font-weight: bold;
+  color: #bf3d3d; }
+
+#footerWidget {
+  margin-top: 14px; }
+
+#headerWidget, #footerWidget {
+  text-align: center; }
+
+#breedList, #dogSearchTerm, #searchButton, .dogCount, #welcomeMessage, .searchField.or {
+  line-height: 24px;
+  font-size: 18px;
+  margin-bottom: 8px; }
+
+.breedName, option .breedName, #breedList {
+  text-transform: capitalize; }
+
+#dogSearchForm {
+  margin: auto; }
+
+#dogSearchForm .searchFields {
+  width: 360px;
+  margin: auto; }
+
+#dogSearchForm .searchFields .searchField {
+  width: 90%;
+  margin: auto; }
+
+#dogSearchForm .searchFields .searchField #dogSearchTerm {
+  width: 100%; }
+
+#dogSearchForm .searchFields .searchField #searchButton {
+  width: 50%; }
+
+#dogSearchForm .searchFields .searchField #breedList {
+  width: 100%; }
+
+@media (min-width: 768px) {
+  #dogSearchForm {
+    width: 90%; } }
+
+@media (min-width: 1024px) {
+  #dogSearchForm {
+    width: 1080px; } }
+
+#dogSearchResults > div {
+  margin: auto; }
+
+#dogSearchResults #dogResultsList {
+  margin: auto; }
+
+@media (min-width: 375px) {
+  #dogSearchResults #dogResultsList {
+    width: 90%; } }
+
+@media (min-width: 768px) {
+  #dogSearchResults #dogResultsList {
+    width: 90%; } }
+
+@media (min-width: 1024px) {
+  #dogSearchResults #dogResultsList {
+    width: 1080px; } }
+
+#dogSearchResults #dogResultsList .resultBreedName {
+  line-height: 32px;
+  font-size: 24px;
+  margin-top: 4px;
+  color: #bf3d3d; }
+
+#dogSearchResults #dogResultsList .dogResult {
+  width: 320px;
+  height: 320px;
+  display: inline-block;
+  margin: 10px 8px 10px 8px; }
+
+#dogSearchResults #dogResultsList .dogResult img {
+  max-width: 100%;
+  max-height: 200px;
+  min-height: 200px; }
+
+#dogSearchResults #dogResultsList .dogResult.left {
+  float: none; }
+
+@media (min-width: 768px) {
+  #dogSearchResults #dogResultsList .dogResult.left {
+    float: left; } }
+
+@media (min-width: 1024px) {
+  #dogSearchResults #dogResultsList .dogResult.left {
+    float: left; } }
+
+#dogSearchResults .searchSpinner, #dogSearchResults .searchSpinner img {
+  height: 32px;
+  width: 32px; }
+
+.testclass {
+  color: blue;
+  font-size: 14px;
+  border: solid black 1px;
+  font-family: helvetica; }
