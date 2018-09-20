@@ -3,14 +3,34 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "4.1.3",
+    "jquery": "1.9.1",
+    "popper.js": "1.14.3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.0"
   },
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "npm-run-all": "4.1.3",
+    "concat-glob-cli": "0.1.0",
+    "npm-watch": "latest"
+  },
+  "watch": {
+    "css:concat": "./src/css/compiled/*.css",
+    "css:concatDist": "./src/css/dogfinder.css"
+  },
   "scripts": {
-    "start": "react-scripts start",
+    "prestart": "npm-run-all scss:compile css:concat css:concatDist",
+    "start": "npm-run-all --parallel react:start scss:watch watch",
+    "react:start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "scss:watch": "node-sass --watch ./src/css/scss -o ./src/css/compiled",
+    "scss:compile": "node-sass ./src/css/scss -o ./src/css/compiled",
+    "css:concat": "concat-glob-cli -f ./src/css/compiled/*.css -o ./src/css/dogfinder.css",
+    "css:concatDist": "concat -o ./src/css/styles.css ./node_modules/bootstrap/dist/css/bootstrap.min.css ./src/css/dogfinder.css",
+    "watch": "npm-watch"
   }
 }
