@@ -154,7 +154,3 @@ h2 {
 #dogSearchResults .searchSpinner, #dogSearchResults .searchSpinner img {
   height: 32px;
   width: 32px; }
-
-/* line 1, src/css/scss/test.scss */
-.testClass {
-  color: blue; }
