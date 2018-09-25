@@ -6,7 +6,7 @@ const SearchResults = ({isLoading, searchResults}) => {
 	if (isLoading) {
 		// Shows spinner image to indicate search is running.
 		return (
-			<div id="dogSearchResults">
+			<div id="dogSearchResults" className="row w-100 p-4 justify-content-center">
 				<div className='searchSpinner'><img src={spinnerImage} alt="Processing..."/></div>
 			</div>
 		);
@@ -17,14 +17,12 @@ const SearchResults = ({isLoading, searchResults}) => {
 			dogsLabel = "Dogs";
 		}
 		return (
-			<div id="dogSearchResults">
-				<div id="dogCount" className="dogCount">{searchResults.dogCount} {dogsLabel} Found.</div>
-				<div id="dogResultsList" className="container">
-					<div className="row">
+			<div id="dogSearchResults" className="row w-100 p-2 justify-content-center">
+				<div id="dogCount" className="row w-100 justify-content-center m-2"><h4>{searchResults.dogCount} {dogsLabel} Found</h4></div>
+				<div id="dogResultsList" className="row w-100 justify-content-center m-2">
 					{searchResults.dogResults.map((dogResult, index) => (
-						<DogSearchItem key={index} itemIndex={index} dog={dogResult} dogCount={searchResults.dogCount} />
+						<DogSearchItem key={index} itemIndex={index} dog={dogResult} />
 					))}
-					</div>
 				</div>
 				<div style={{clear:'both'}}></div>
 			</div>

@@ -1,3 +1,5 @@
+import delay from './delay';
+
 export default class DogSearchApi {
 
   static performDogSearch(searchTerm, breedSearch) {
@@ -128,7 +130,9 @@ export default class DogSearchApi {
 								dogResults.dogResults = "";
 							}
 						}
-						resolve(dogResults);
+            setTimeout(() => {
+              resolve(dogResults);
+            }, delay);
 					}); // end of json after the fetch
 				}); // End of fetch for all breeds
 			} // searchTerm if block

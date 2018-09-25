@@ -1,4 +1,6 @@
 import notFoundImage from '../images/image-not-found.jpg';
+import delay from './delay';
+import delayImg from './delayImg';
 
 export default class DogFinderApi {
 
@@ -7,7 +9,9 @@ export default class DogFinderApi {
 			fetch("https://dog.ceo/api/breeds/list")
 	       .then(function(response) {
 					 response.json().then(function (data) {
-						 resolve(data.message);
+						 setTimeout(() => {
+							 resolve(data.message);
+						 }, delay);
 					 });
 	       })
 	       .catch(function(error) {
@@ -32,7 +36,9 @@ export default class DogFinderApi {
 							if (imageResults != null) {
 								imageUrl = imageResults.message;
 							}
-							resolve(imageUrl);
+							setTimeout(() => {
+								resolve(imageUrl);
+ 						 	}, delayImg);
 						});
 					} else {
 						console.log("Failed to retrieve image");
