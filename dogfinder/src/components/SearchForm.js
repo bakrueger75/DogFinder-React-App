@@ -94,6 +94,7 @@ export default class SearchForm extends React.Component {
 	} else {
 		return (
 			<div id="dogSearchForm" className="row justify-content-center">
+        <div className="row justify-content-center col-12"><h5>Search for a dog or select a breed from the list.</h5></div>
         <div className="row justify-content-center col-10 col-sm-10 col-md-6 col-lg-4">
   				<div className="w-100 p-1">
   					<select className="form-control text-capitalize" id="breedList" onChange={this.breedSelected} ref="breedList">

@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/styles.css';
-import DogFinder from './components/DogFinder.js';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
+//import DogFinder from './components/DogFinder.js';
 
 ReactDOM.render(
-  <DogFinder />,
-  document.getElementById('root')
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+  , document.getElementById('root')
 );

@@ -12,10 +12,11 @@ export default class Header extends React.Component {
       </div>
       <div className="row">
         <h2 id="font-red" className="col-12">Dog Finder</h2>
-        <h4 className="col-12 m-2">
-  				Welcome to Dog Finder!<br/> Search for a dog or select a breed from the list.
+        <h4 className="col-12 m-2 text-capitalize">
+  				{this.props.message}
   			</h4>
       </div>
+
 		</div>
 	);
   }

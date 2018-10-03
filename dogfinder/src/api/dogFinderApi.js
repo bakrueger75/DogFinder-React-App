@@ -4,6 +4,31 @@ import delayImg from './delayImg';
 
 export default class DogFinderApi {
 
+	static getWikipediaDogDetails(breed, subBreed) {
+		return new Promise((resolve, reject) => {
+			let wikiSearch = ((subBreed) ? subBreed + '%20' + breed: breed);
+			console.log(wikiSearch);
+			fetch("https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles="+wikiSearch,
+				{
+					mode: "no-cors",
+					headers: {
+						"Content-Type": "application/json; charset=utf-8"
+					}
+				})
+				.then(function(response) {
+					response.json().then(function (data) {
+						resolve(data.message);
+					})
+					.catch((error) => {
+						console.log(error);
+					});
+				})
+				.catch(function(error) {
+					console.log(error);
+				});
+		});
+	}
+
 	static getDogList() {
 		return new Promise((resolve, reject) => {
 			fetch("https://dog.ceo/api/breeds/list")
