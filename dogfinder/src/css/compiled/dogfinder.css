@@ -13,7 +13,13 @@ h2, h4 {
   max-height: 200px;
   min-height: 200px; }
 
-/* line 18, src/css/scss/dogfinder.scss */
+/* line 19, src/css/scss/dogfinder.scss */
+#dogDetail .dogResultImg {
+  max-width: 100%;
+  max-height: 400px;
+  min-height: 200px; }
+
+/* line 27, src/css/scss/dogfinder.scss */
 .searchSpinner, .searchSpinner img {
   height: 32px;
   width: 32px; }

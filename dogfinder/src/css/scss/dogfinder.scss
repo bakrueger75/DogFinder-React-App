@@ -15,6 +15,15 @@ h2, h4 {
   }
 }
 
+#dogDetail {
+  .dogResultImg {
+    max-width: 100%;
+    max-height: 400px;
+    min-height: 200px;
+    //max-height: 300px;
+  }
+}
+
 .searchSpinner, .searchSpinner img {
   height: 32px;
   width: 32px;
