@@ -7,22 +7,22 @@ export default class DogFinderApi {
 	static getWikipediaDogDetails(breed, subBreed) {
 		return new Promise((resolve, reject) => {
 			let wikiSearch = ((subBreed) ? subBreed + '%20' + breed: breed);
-			console.log(wikiSearch);
-			// 	{
-			// 		mode: "no-cors"
-			// 		// ,
-			// 		// headers: {
-			// 		// 	"Content-Type": "text/json; charset=utf-8",
-			// 		// 	"X-Content-Type-Options": "nosniff"
-			// 		// }
-			// 	})
-			//fetch("https://en.wikipedia.org/w/api.php?&origin=*&action=opensearch&search=cattledog&limit=2")
-			fetch("https://en.wikipedia.org/w/api.php?format=json&origin=*&action=query&prop=extracts&exintro&explaintext&redirects=1&titles="+wikiSearch)
-				.then(function(response) {
-					//console.log(response.json());
-					response.json().then((data) => {
-						console.log(data);
-						resolve(data.message);
+			// Do a search and use the first result as the page to pull the dog details from wikipedia
+			fetch("https://en.wikipedia.org/w/api.php?format=json&origin=*&action=query&list=search&srlimit=1&srsearch="+wikiSearch+"%20dog")
+				.then(function(searchResponse) {
+					searchResponse.json().then((searchData) => {
+						let pageId = searchData.query.search[0].pageid;
+						// Using the pageId from the first search result, call wikipedia to get the summary extract.
+						fetch("https://en.wikipedia.org/w/api.php?format=json&origin=*&action=query&prop=extracts&exintro&redirects=1&pageids="+pageId)
+							.then(function(response) {
+								response.json().then((data) => {
+									let dogDetails = {
+										pageId: pageId,
+										details: data.query.pages[pageId].extract
+									};
+									resolve(dogDetails);
+								});
+							});
 					})
 					.catch((error) => {
 						console.log(error);
