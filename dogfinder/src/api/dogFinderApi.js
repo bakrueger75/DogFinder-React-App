@@ -8,15 +8,20 @@ export default class DogFinderApi {
 		return new Promise((resolve, reject) => {
 			let wikiSearch = ((subBreed) ? subBreed + '%20' + breed: breed);
 			console.log(wikiSearch);
-			fetch("https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles="+wikiSearch,
-				{
-					mode: "no-cors",
-					headers: {
-						"Content-Type": "application/json; charset=utf-8"
-					}
-				})
+			// 	{
+			// 		mode: "no-cors"
+			// 		// ,
+			// 		// headers: {
+			// 		// 	"Content-Type": "text/json; charset=utf-8",
+			// 		// 	"X-Content-Type-Options": "nosniff"
+			// 		// }
+			// 	})
+			//fetch("https://en.wikipedia.org/w/api.php?&origin=*&action=opensearch&search=cattledog&limit=2")
+			fetch("https://en.wikipedia.org/w/api.php?format=json&origin=*&action=query&prop=extracts&exintro&explaintext&redirects=1&titles="+wikiSearch)
 				.then(function(response) {
-					response.json().then(function (data) {
+					//console.log(response.json());
+					response.json().then((data) => {
+						console.log(data);
 						resolve(data.message);
 					})
 					.catch((error) => {
