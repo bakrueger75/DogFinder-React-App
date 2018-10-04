@@ -7,8 +7,7 @@ import AboutPage from './components/about/aboutPage.js';
 export default (
   <div>
     <Route exact path="/" component={DogFinder} />
-    <Route exact path="/detail/:breed" component={DogDetail} />
-    <Route exact path="/detail/:breed/:subBreed" component={DogDetail} />
+    <Route path="/detail/:breed/:subBreed?" component={DogDetail} />
     <Route exact path="/about" component={AboutPage} />
   </div>
 );
