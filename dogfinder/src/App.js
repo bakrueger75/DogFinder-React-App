@@ -1,10 +1,15 @@
 import React from 'react';
 import routes from './routes.js';
+import { withRouter } from 'react-router-dom';
 
-const App = () => (
-  <div>
-    {routes}
-  </div>
-);
+class App extends React.Component {
+  render() {
+    return (
+      <div id="App">
+        {routes}
+      </div>
+    );
+  }
+}
 
-export default App;
+export default withRouter(App);
