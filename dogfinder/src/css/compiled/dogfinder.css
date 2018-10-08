@@ -19,7 +19,7 @@ h2, h4 {
   max-height: 400px;
   min-height: 200px; }
 
-/* line 27, src/css/scss/dogfinder.scss */
+/* line 26, src/css/scss/dogfinder.scss */
 .searchSpinner, .searchSpinner img {
-  height: 32px;
-  width: 32px; }
+  height: 36px;
+  width: 36px; }
