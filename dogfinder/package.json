@@ -35,8 +35,7 @@
     "eject": "react-scripts eject",
     "scss:compile": "node-sass --source-comments -r ./src/css/scss/ -o ./src/css/compiled",
     "scss:watch": "npm run scss:compile -- --watch",
-    "css:concat": "concat-glob-cli -f ./src/css/compiled/*.css ./node_modules/bootstrap/dist/css/bootstrap.min.css -o ./src/css/styles.css",
-    "css:concatORIG": "concat ./node_modules/bootstrap/dist/css/bootstrap.min.css ./src/css/compiled/dogfinder.css -o ./src/css/styles.css",
+    "css:concat": "concat ./node_modules/bootstrap/dist/css/bootstrap.min.css ./src/css/compiled/dogfinder.css -o ./src/css/styles.css",
     "css:watch": "onchange \"./src/css/compiled/*.css\" -- npm run css:concat",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
